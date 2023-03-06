@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Tamashflix</h1>
+      <h1>TAMASHFLIX</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -16,7 +16,7 @@ function App() {
       <Button variant="contained" color="success" onClick={() => setCount(0)}>
         Reset the count
       </Button>
-      <p className="read-the-docs">Basic homepage</p>
+      <p className="read-the-docs">Basic homepage for TAMASHFLIX</p>
     </div>
   );
 }
