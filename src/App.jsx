@@ -14,7 +14,7 @@ function App() {
         </button>
       </div>
       <Button variant="contained" color="success" onClick={() => setCount(0)}>
-        Reset
+        Reset the count
       </Button>
       <p className="read-the-docs">Basic homepage</p>
     </div>
