@@ -16,7 +16,7 @@ function App() {
       <Button variant="contained" color="success" onClick={() => setCount(0)}>
         Reset the count
       </Button>
-      <p className="read-the-docs">Basic homepage</p>
+      <p className="read-the-docs">Basic homepage for TAMASHFLIX</p>
     </div>
   );
 }
