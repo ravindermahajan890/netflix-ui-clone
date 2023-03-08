@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import './App.css';
 import { Button } from '@mui/material';
+import './App.css';
 
-function App() {
+const App = () => {
   const [count, setCount] = useState(0);
 
   return (
     <div className="App">
       <h1>TAMASHFLIX</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button type="button" onClick={() => setCount((prevCount) => prevCount + 1)}>
           Count is {count}
         </button>
       </div>
@@ -19,6 +19,6 @@ function App() {
       <p className="read-the-docs">Basic homepage for TAMASHFLIX</p>
     </div>
   );
-}
+};
 
 export default App;
