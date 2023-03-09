@@ -20,5 +20,6 @@
       "groups": ["builtin", "external", "parent", "sibling", "index"]
     }],
     "no-restricted-exports": "off"
-  }
+  },
+  "ignorePatterns": ["generators"]
 }
