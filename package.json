@@ -12,7 +12,8 @@
     "test": "jest --ci",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --ci",
-    "prepare": "sh setupHusky.sh"
+    "prepare": "sh setupHusky.sh",
+    "generate": "node generators/index.js"
   },
   "dependencies": {
     "@emotion/react": "11.10.6",
