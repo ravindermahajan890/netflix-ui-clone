@@ -18,6 +18,7 @@
     "import/no-extraneous-dependencies": ["error", { "devDependencies": ["*.test.*", "**/*.test.*"] }],
     "import/order": ["error", {
       "groups": ["builtin", "external", "parent", "sibling", "index"]
-    }]
+    }],
+    "no-restricted-exports": "off"
   }
 }

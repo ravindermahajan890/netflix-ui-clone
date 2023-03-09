@@ -3,6 +3,7 @@
   "setupFilesAfterEnv": ["./src/setupTests.ts"],
   "transform": { ".*": "ts-jest" },
   "moduleNameMapper": { "\\.css$": "jest-css-modules" },
+  "snapshotSerializers": ["@emotion/jest/serializer"],
   "roots": ["./src"],
   "resetMocks": true,
   "watchPlugins": ["jest-watch-typeahead/filename", "jest-watch-typeahead/testname"],
@@ -11,7 +12,8 @@
     "src/**/*.{js,jsx,ts,tsx}",
     "!src/setupTests.ts",
     "!src/main.tsx",
-    "!src/vite-env.d.ts"
+    "!src/vite-env.d.ts",
+    "!src/utils/test-utils.tsx"
   ],
   "coverageThreshold": {
     "global": {
