@@ -5,6 +5,7 @@
     "enabled": false
   },
   "builds": [
-    { "src": "./dist/**/*.*", "use": "@vercel/static" }
-  ]
+    { "src": "dist/", "use": "@vercel/static" }
+  ],
+  "root": "dist/"
 }
