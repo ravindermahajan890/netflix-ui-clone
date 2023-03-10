@@ -30,7 +30,7 @@ Setup() {
   PrePush
 }
 
-if [ "$CI" == true ]
+if [ "$CI" = true ]
 then
   echo "Skipping husky setup, since env is set to CI=true"
 else
