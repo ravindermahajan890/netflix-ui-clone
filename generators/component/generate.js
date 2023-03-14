@@ -4,7 +4,7 @@ import replaceInFile from '../utils/replaceInFile.js';
 
 const generate = (componentName, location) => {
   if(!fs.existsSync(path.join('src', location))) {
-    console.log(`Please make sure '${location}' directory exist under src.`);
+    console.log(`\nPlease make sure '${location}' directory exist under src.`);
     return ;
   }
 
