@@ -14,8 +14,8 @@ switch (commands[0]) {
   case 'component':
     import('./component/index.js').then(({ generateComponent }) => generateComponent());
     break;
-  case 'h':
-  case 'help':
+  case '-h':
+  case '--help':
   default:
     menu();
 }

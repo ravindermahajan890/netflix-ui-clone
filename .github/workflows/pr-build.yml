@@ -1,0 +1,47 @@
+name: PR Build
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Setup Environment
+        uses: ./.github/actions/setup
+      - name: Run linting
+        run: pnpm lint
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Setup Environment
+        uses: ./.github/actions/setup
+      - name: Run tests
+        run: pnpm test:coverage
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Setup Environment
+        uses: ./.github/actions/setup
+      - name: Run build
+        run: pnpm build
+
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Setup Environment
+        uses: ./.github/actions/setup
+      - name: Run build
+        run: pnpm audit

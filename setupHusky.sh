@@ -14,7 +14,7 @@ PreCommit() {
 }
 
 CommitMessage() {
-  pnpm husky add .husky/commit-msg "pnpm commitlint --config ./commitlint.config.cjs --edit $1"
+  pnpm husky add .husky/commit-msg 'pnpm commitlint --config ./commitlint.config.cjs --edit $1'
 }
 
 PrePush() {
