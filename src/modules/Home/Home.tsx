@@ -2,6 +2,7 @@ import { Box, Button, Card, CardActions, CardContent, CardHeader, Container, Div
 import Typography from '@mui/material/Typography';
 import React, { useState } from 'react';
 import Logo from '../../components/Logo';
+import env from '../../env';
 
 const Home = () => {
   const [count, setCount] = useState(0);
@@ -16,7 +17,9 @@ const Home = () => {
           <CardHeader title={<Logo />} />
           <Divider />
           <CardContent>
-            <Typography color="lightGrey.main">While our app is getting developed, play with our counter</Typography>
+            <Typography color="lightGrey.main">
+              While our app({env.VITE_APP_NAME}) is getting developed, play with our counter
+            </Typography>
             <Typography>Count is {count}</Typography>
           </CardContent>
           <CardActions>

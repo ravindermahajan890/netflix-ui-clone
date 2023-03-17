@@ -437,7 +437,7 @@ exports[`Home should render 1`] = `
           <p
             class="MuiTypography-root MuiTypography-body1 emotion-12"
           >
-            While our app is getting developed, play with our counter
+            While our app(Test App Name) is getting developed, play with our counter
           </p>
           <p
             class="MuiTypography-root MuiTypography-body1 emotion-13"

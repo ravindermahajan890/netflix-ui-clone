@@ -12,6 +12,7 @@
     "src/**/*.{js,jsx,ts,tsx}",
     "!src/setupTests.ts",
     "!src/main.tsx",
+    "!src/env.ts",
     "!src/vite-env.d.ts",
     "!src/utils/test-utils.tsx"
   ],
