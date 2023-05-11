@@ -12,6 +12,9 @@
   "rules": {
     "prettier/prettier": "error",
     "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "react/require-default-props": "off",
+    "react/jsx-no-constructed-context-values": "off",
     "react/function-component-definition": [2, {
       "namedComponents": "arrow-function", "unnamedComponents": "arrow-function"
     }],
@@ -19,7 +22,8 @@
     "import/order": ["error", {
       "groups": ["builtin", "external", "parent", "sibling", "index"]
     }],
-    "no-restricted-exports": "off"
+    "no-restricted-exports": "off",
+    "no-console": "off"
   },
   "ignorePatterns": ["generators"]
 }

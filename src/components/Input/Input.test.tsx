@@ -1,9 +1,9 @@
 import { render } from '../../utils/test-utils';
-import SignUp from '.';
+import Input from '.';
 
-describe('CustomButton', () => {
+describe('Input', () => {
   it('should render', () => {
-    const { asFragment } = render(<SignUp />);
+    const { asFragment } = render(<Input label="test-label" icon={<>Icon</>} />);
 
     expect(asFragment()).toMatchSnapshot();
   });

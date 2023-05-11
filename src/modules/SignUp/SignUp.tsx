@@ -1,89 +1,64 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardHeader,
-  Container,
-  InputAdornment,
-  InputBase,
-  InputLabel,
-  InputLabelProps,
-  styled,
-} from '@mui/material';
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import { Box, Card, CardHeader, Container } from '@mui/material';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import CustomButton from '../../components/CustomButton';
+import Input from '../../components/Input';
 import Logo from '../../components/Logo';
+import { useAuth } from '../../providers/Auth/Auth';
 
-const CustomInputLabel = styled(InputLabel)<InputLabelProps>(() => ({
-  color: 'white',
-  fontSize: '20px',
-}));
+const SignUp = () => {
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [confirmPassword, setConfirmPassword] = useState<string>('');
 
-const CustomInputBox = styled(InputBase)(({ theme }) => ({
-  border: `1px solid ${theme.palette.lightGrey.main}`,
-  borderRadius: '4px',
-  width: '100%',
-  padding: theme.spacing(2),
-  marginTop: theme.spacing(1),
-  '& .MuiInputBase-input': { fontSize: '20px', fontWeight: '300', padding: '0' },
-}));
+  const { signUp } = useAuth();
+  const navigate = useNavigate();
 
-const SignUp = () => (
-  <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
-    <Container maxWidth="sm">
-      <Card
-        sx={{
-          paddingX: (theme) => theme.spacing(8),
-          paddingTop: (theme) => theme.spacing(3),
-          paddingBottom: (theme) => theme.spacing(5),
-        }}
-      >
-        <CardHeader title={<Logo alignment="center" />} />
-        <Box display="flex" flexDirection="column" gap="30px" marginTop="16px">
-          <div>
-            <CustomInputLabel>Username</CustomInputLabel>
-            <CustomInputBox
-              startAdornment={
-                <InputAdornment position="start">
-                  <PersonOutlineIcon />
-                </InputAdornment>
-              }
+  const onSubmitHandler = async () => {
+    if (password !== confirmPassword) {
+      console.log('[SignUp] Confirm password does not match');
+      return;
+    }
+
+    await signUp(email, password);
+
+    navigate('/', { replace: true });
+  };
+
+  return (
+    <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
+      <Container maxWidth="sm">
+        <Card style={{ padding: '24px 64px 40px' }}>
+          <CardHeader title={<Logo alignment="center" />} />
+          <Box display="flex" flexDirection="column" gap="30px" marginTop="16px">
+            <Input
+              label="Email"
+              icon={<PersonOutlineIcon />}
+              type="email"
+              onChange={(event) => setEmail((event.target as HTMLInputElement).value)}
             />
-          </div>
-          <div>
-            <CustomInputLabel>Password</CustomInputLabel>
-            <CustomInputBox
-              startAdornment={
-                <InputAdornment position="start">
-                  <LockOutlinedIcon />
-                </InputAdornment>
-              }
+            <Input
+              label="Password"
+              icon={<LockOutlinedIcon />}
               type="password"
+              onChange={(event) => setPassword((event.target as HTMLInputElement).value)}
             />
-          </div>
-          <div>
-            <CustomInputLabel>Confirm password</CustomInputLabel>
-            <CustomInputBox
-              startAdornment={
-                <InputAdornment position="start">
-                  <LockOutlinedIcon />
-                </InputAdornment>
-              }
+            <Input
+              label="Confirm password"
+              icon={<LockOutlinedIcon />}
               type="password"
+              onChange={(event) => setConfirmPassword((event.target as HTMLInputElement).value)}
             />
-          </div>
-          <Button
-            variant="contained"
-            color="tertiary"
-            size="large"
-            style={{ textTransform: 'none', fontSize: '20px', fontWeight: '400' }}
-          >
-            Signup
-          </Button>
-        </Box>
-      </Card>
-    </Container>
-  </Box>
-);
+            <CustomButton variant="contained" color="tertiary" size="large" onClick={onSubmitHandler}>
+              Signup
+            </CustomButton>
+          </Box>
+        </Card>
+      </Container>
+    </Box>
+  );
+};
 
 export default SignUp;

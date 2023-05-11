@@ -72,11 +72,10 @@ exports[`Home should render 1`] = `
 
 .emotion-5 {
   margin: 0;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: Inter;
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 1.334;
-  letter-spacing: 0em;
   display: block;
 }
 
@@ -85,6 +84,10 @@ exports[`Home should render 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: left;
+  -ms-flex-pack: left;
+  -webkit-justify-content: left;
+  justify-content: left;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -111,7 +114,7 @@ exports[`Home should render 1`] = `
   flex-shrink: 0;
   width: 40px;
   height: 40px;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: Inter;
   font-size: 1.25rem;
   line-height: 1;
   border-radius: 50%;
@@ -133,11 +136,10 @@ exports[`Home should render 1`] = `
 
 .emotion-9 {
   margin: 0;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: Inter;
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 1.334;
-  letter-spacing: 0em;
   color: #FE0039;
 }
 
@@ -162,21 +164,19 @@ exports[`Home should render 1`] = `
 
 .emotion-12 {
   margin: 0;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: Inter;
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5;
-  letter-spacing: 0.00938em;
   color: #ADB5BD;
 }
 
 .emotion-13 {
   margin: 0;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: Inter;
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5;
-  letter-spacing: 0.00938em;
 }
 
 .emotion-14 {
@@ -228,11 +228,10 @@ exports[`Home should render 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   color: inherit;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: Inter;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.75;
-  letter-spacing: 0.02857em;
   text-transform: uppercase;
   min-width: 64px;
   padding: 6px 16px;
@@ -332,11 +331,10 @@ exports[`Home should render 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   color: inherit;
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: Inter;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.75;
-  letter-spacing: 0.02857em;
   text-transform: uppercase;
   min-width: 64px;
   padding: 6px 16px;
@@ -414,7 +412,7 @@ exports[`Home should render 1`] = `
                   class="MuiAvatar-root MuiAvatar-circular emotion-7"
                 >
                   <img
-                    alt="TAMASHFLIXH"
+                    alt="TAMASHFLIX"
                     class="MuiAvatar-img emotion-8"
                     src="/tamashflix.svg"
                   />
