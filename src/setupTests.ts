@@ -3,6 +3,7 @@ import '@testing-library/jest-dom';
 
 jest.mock('./env', () => ({
   default: {
-    VITE_APP_NAME: 'Test App Name',
+    APP_NAME: 'Test App Name',
+    API_ENDPOINT: 'http://unit-test.com',
   },
 }));

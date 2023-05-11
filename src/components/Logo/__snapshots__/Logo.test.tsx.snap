@@ -7,6 +7,10 @@ exports[`Logo should render 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: left;
+  -ms-flex-pack: left;
+  -webkit-justify-content: left;
+  justify-content: left;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -70,7 +74,7 @@ exports[`Logo should render 1`] = `
       class="MuiAvatar-root MuiAvatar-circular emotion-1"
     >
       <img
-        alt="TAMASHFLIXH"
+        alt="TAMASHFLIX"
         class="MuiAvatar-img emotion-2"
         src="/tamashflix.svg"
       />

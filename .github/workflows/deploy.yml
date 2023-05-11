@@ -55,5 +55,6 @@ jobs:
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
         env:
           VITE_APP_NAME: ${{ vars.VITE_APP_NAME }}
+          VITE_API_ENDPOINT: 'https://api.ravindermahajan.com'
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}

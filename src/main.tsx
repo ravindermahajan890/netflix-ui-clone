@@ -1,14 +1,14 @@
 import { CssBaseline } from '@mui/material';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Home from './modules/Home';
-import Theme from './providers/Theme';
+import Providers from './providers';
+import Router from './routes/Router';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <Theme>
+    <Providers>
       <CssBaseline />
-      <Home />
-    </Theme>
+      <Router />
+    </Providers>
   </React.StrictMode>,
 );

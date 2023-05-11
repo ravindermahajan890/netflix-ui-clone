@@ -18,9 +18,12 @@
   "dependencies": {
     "@emotion/react": "11.10.6",
     "@emotion/styled": "11.10.6",
+    "@mui/icons-material": "5.11.11",
     "@mui/material": "5.11.10",
+    "axios": "^1.3.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-router-dom": "^6.10.0"
   },
   "devDependencies": {
     "@commitlint/cli": "17.4.4",
@@ -48,7 +51,7 @@
     "jest-resolve": "29.5.0",
     "jest-watch-typeahead": "2.2.2",
     "jest-when": "3.5.2",
-    "lint-staged": "13.1.2",
+    "lint-staged": "13.2.2",
     "ts-jest": "29.0.5",
     "typescript": "4.9.5",
     "vite": "4.1.3"

@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
-import Component from '.';
+import CustomButton from '.';
 
-describe('Component', () => {
+describe('CustomButton', () => {
   it('should render', () => {
-    const { asFragment } = render(<Component />);
+    const { asFragment } = render(<CustomButton />);
 
     expect(asFragment()).toMatchSnapshot();
   });

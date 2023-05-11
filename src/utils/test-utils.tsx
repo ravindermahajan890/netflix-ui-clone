@@ -1,11 +1,16 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { render as rtlRender } from '@testing-library/react';
 import { PropsWithChildren, ReactElement } from 'react';
-import Theme from '../providers/Theme';
+import { HashRouter } from 'react-router-dom';
+import Providers from '../providers';
 
 // eslint-disable-next-line import/prefer-default-export
 export const render = (ui: ReactElement) => {
-  const wrapper = ({ children }: PropsWithChildren) => <Theme>{children}</Theme>;
+  const wrapper = ({ children }: PropsWithChildren) => (
+    <Providers>
+      <HashRouter>{children}</HashRouter>
+    </Providers>
+  );
 
   return rtlRender(ui, { wrapper });
 };

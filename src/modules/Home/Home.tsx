@@ -18,7 +18,7 @@ const Home = () => {
           <Divider />
           <CardContent>
             <Typography color="lightGrey.main">
-              While our app({env.VITE_APP_NAME}) is getting developed, play with our counter
+              While our app({env.APP_NAME}) is getting developed, play with our counter
             </Typography>
             <Typography>Count is {count}</Typography>
           </CardContent>

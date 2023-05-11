@@ -38,6 +38,9 @@ const theme = createTheme({
     accent: { main: '#FE0039' },
     lightGrey: { main: '#ADB5BD' },
   },
+  typography: {
+    fontFamily: 'Inter',
+  },
 });
 
 const Theme = ({ children }: PropsWithChildren) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;
