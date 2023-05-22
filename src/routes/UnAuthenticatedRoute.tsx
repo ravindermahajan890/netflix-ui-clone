@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
-import { useAuth } from '../providers/Auth/Auth';
+import { useAuth } from '../providers/Auth';
 import routes from '.';
 
 const AuthenticatedRoute = () => {
