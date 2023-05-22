@@ -24,7 +24,7 @@ declare module '@mui/material' {
   }
 }
 
-const theme = createTheme({
+const themeProvider = createTheme({
   palette: {
     mode: 'dark',
     background: { default: '#212529', paper: common.black },
@@ -43,6 +43,6 @@ const theme = createTheme({
   },
 });
 
-const Theme = ({ children }: PropsWithChildren) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+const Theme = ({ children }: PropsWithChildren) => <ThemeProvider theme={themeProvider}>{children}</ThemeProvider>;
 
 export default Theme;

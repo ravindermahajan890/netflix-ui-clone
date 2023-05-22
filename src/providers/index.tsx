@@ -1,11 +1,11 @@
 import { PropsWithChildren } from 'react';
 import AuthProvider from './Auth';
-import Theme from './Theme';
+import ThemeProvider from './Theme';
 
 const Providers = ({ children }: PropsWithChildren) => (
-  <Theme>
+  <ThemeProvider>
     <AuthProvider>{children}</AuthProvider>
-  </Theme>
+  </ThemeProvider>
 );
 
 export default Providers;
