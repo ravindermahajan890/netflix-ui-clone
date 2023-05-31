@@ -9,7 +9,7 @@ interface UserInfo {
 
 interface IAuthState extends UserInfo {
   isAuthenticated: boolean;
-  signUp: (email: string, password: string) => Promise<void>;
+  signUp: (email: string, password: string, recaptchaValue?: string | null) => Promise<void>;
   login: (email: string, password: string) => Promise<void>;
 }
 
@@ -25,9 +25,9 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
     token: sessionStorage.getItem('token'),
   });
 
-  const signUp = (email: string, password: string) =>
+  const signUp = (email: string, password: string, recaptchaValue?: string | null) =>
     axios
-      .post(`${env.API_ENDPOINT}/auth/signup`, { email, password })
+      .post(`${env.API_ENDPOINT}/auth/signup`, { email, password, recaptchaValue })
       .then(({ data }) => {
         setUserInfo({ email, token: data.access_token });
         sessionStorage.setItem('email', email);
