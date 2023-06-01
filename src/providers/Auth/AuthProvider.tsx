@@ -9,8 +9,8 @@ interface UserInfo {
 
 interface IAuthState extends UserInfo {
   isAuthenticated: boolean;
-  signUp: (email: string, password: string, recaptchaValue?: string | null) => Promise<void>;
-  login: (email: string, password: string) => Promise<void>;
+  signUp: (email: string, password: string, recaptchaValue: string) => Promise<void>;
+  login: (email: string, password: string, recaptchaValue: string) => Promise<void>;
 }
 
 const AuthContext = createContext<IAuthState>({
@@ -25,7 +25,7 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
     token: sessionStorage.getItem('token'),
   });
 
-  const signUp = (email: string, password: string, recaptchaValue?: string | null) =>
+  const signUp = (email: string, password: string, recaptchaValue: string) =>
     axios
       .post(`${env.API_ENDPOINT}/auth/signup`, { email, password, recaptchaValue })
       .then(({ data }) => {
@@ -35,9 +35,9 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
       })
       .catch(() => console.log('[Signup] Failed to signup user'));
 
-  const login = (email: string, password: string) =>
+  const login = (email: string, password: string, recaptchaValue: string) =>
     axios
-      .post(`${env.API_ENDPOINT}/auth/signin`, { email, password })
+      .post(`${env.API_ENDPOINT}/auth/signin`, { email, password, recaptchaValue })
       .then(({ data }) => {
         setUserInfo({ email, token: data.access_token });
         sessionStorage.setItem('email', email);
