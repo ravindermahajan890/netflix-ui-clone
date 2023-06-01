@@ -36,10 +36,11 @@ const Authenticate = ({ isLogin }: { isLogin?: boolean }) => {
   };
 
   const onSubmitHandler = async () => {
-    if (!isInputValid()) return;
+    const recaptchaValue = reCaptchaRef.current?.getValue();
+    if (!isInputValid() || !recaptchaValue) return;
 
-    if (isLogin) await login(email, password);
-    else await signUp(email, password, reCaptchaRef.current?.getValue());
+    if (isLogin) await login(email, password, recaptchaValue);
+    else await signUp(email, password, recaptchaValue);
 
     reCaptchaRef.current?.reset();
     navigate('/', { replace: true });
@@ -74,16 +75,14 @@ const Authenticate = ({ isLogin }: { isLogin?: boolean }) => {
               onChange={(event) => setPassword((event.target as HTMLInputElement).value)}
             />
             {!isLogin && (
-              <>
-                <Input
-                  label="Confirm password"
-                  icon={<LockOutlinedIcon />}
-                  type="password"
-                  onChange={(event) => setConfirmPassword((event.target as HTMLInputElement).value)}
-                />
-                <ReCAPTCHA sitekey={env.RECAPTCHA_SITE_KEY} ref={reCaptchaRef} />
-              </>
+              <Input
+                label="Confirm password"
+                icon={<LockOutlinedIcon />}
+                type="password"
+                onChange={(event) => setConfirmPassword((event.target as HTMLInputElement).value)}
+              />
             )}
+            <ReCAPTCHA sitekey={env.RECAPTCHA_SITE_KEY} ref={reCaptchaRef} />
             <CustomButton variant="contained" color="tertiary" size="large" onClick={onSubmitHandler}>
               {isLogin ? 'Login' : 'Signup'}
             </CustomButton>
