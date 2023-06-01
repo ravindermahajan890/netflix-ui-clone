@@ -1,11 +1,13 @@
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import { Box, Card, CardHeader, Container, Divider, Typography } from '@mui/material';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { useNavigate } from 'react-router-dom';
 import CustomButton from '../../components/CustomButton';
 import Input from '../../components/Input';
 import Logo from '../../components/Logo';
+import env from '../../env';
 import { useAuth } from '../../providers/Auth';
 import Routes from '../../routes';
 import authBackground from './auth_background.jpg';
@@ -14,11 +16,12 @@ const Authenticate = ({ isLogin }: { isLogin?: boolean }) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [confirmPassword, setConfirmPassword] = useState<string>('');
+  const reCaptchaRef = useRef<ReCAPTCHA>(null);
 
   const { signUp, login } = useAuth();
   const navigate = useNavigate();
 
-  const isInputValidate = () => {
+  const isInputValid = () => {
     if (!email && !password) {
       console.log('[Auth] Email and password should not be empty');
       return false;
@@ -33,11 +36,12 @@ const Authenticate = ({ isLogin }: { isLogin?: boolean }) => {
   };
 
   const onSubmitHandler = async () => {
-    if (!isInputValidate()) return;
+    if (!isInputValid()) return;
 
     if (isLogin) await login(email, password);
-    else await signUp(email, password);
+    else await signUp(email, password, reCaptchaRef.current?.getValue());
 
+    reCaptchaRef.current?.reset();
     navigate('/', { replace: true });
   };
 
@@ -70,12 +74,15 @@ const Authenticate = ({ isLogin }: { isLogin?: boolean }) => {
               onChange={(event) => setPassword((event.target as HTMLInputElement).value)}
             />
             {!isLogin && (
-              <Input
-                label="Confirm password"
-                icon={<LockOutlinedIcon />}
-                type="password"
-                onChange={(event) => setConfirmPassword((event.target as HTMLInputElement).value)}
-              />
+              <>
+                <Input
+                  label="Confirm password"
+                  icon={<LockOutlinedIcon />}
+                  type="password"
+                  onChange={(event) => setConfirmPassword((event.target as HTMLInputElement).value)}
+                />
+                <ReCAPTCHA sitekey={env.RECAPTCHA_SITE_KEY} ref={reCaptchaRef} />
+              </>
             )}
             <CustomButton variant="contained" color="tertiary" size="large" onClick={onSubmitHandler}>
               {isLogin ? 'Login' : 'Signup'}
