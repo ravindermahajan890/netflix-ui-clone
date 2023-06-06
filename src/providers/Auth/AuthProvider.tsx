@@ -11,12 +11,14 @@ interface IAuthState extends UserInfo {
   isAuthenticated: boolean;
   signUp: (email: string, password: string, recaptchaValue: string) => Promise<void>;
   login: (email: string, password: string, recaptchaValue: string) => Promise<void>;
+  logout: () => void;
 }
 
 const AuthContext = createContext<IAuthState>({
   isAuthenticated: false,
   signUp: async () => {},
   login: async () => {},
+  logout: () => {},
 });
 
 const AuthProvider = ({ children }: PropsWithChildren) => {
@@ -45,11 +47,17 @@ const AuthProvider = ({ children }: PropsWithChildren) => {
       })
       .catch(() => console.log('[Login] Failed to signup user'));
 
+  const logout = () => {
+    setUserInfo({});
+    sessionStorage.clear();
+  };
+
   const authState: IAuthState = {
     ...userInfo,
     isAuthenticated: Boolean(userInfo.email) && Boolean(userInfo.token),
     signUp,
     login,
+    logout,
   };
 
   return <AuthContext.Provider value={authState}>{children}</AuthContext.Provider>;
